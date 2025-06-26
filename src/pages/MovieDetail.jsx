@@ -38,7 +38,6 @@ function MovieDetail() {
 
   if (!movie) return <div>Carregando...</div>;
 
-  // Combina tudo para exibir no JSON
   const fullData = {
     ...movie,
     cast,
@@ -89,14 +88,12 @@ function MovieDetail() {
           </div>
         )}
 
-        {/* Exibe todos os dados combinados da API */}
         <div className="mt-8 bg-gray-900 text-green-400 p-4 rounded overflow-x-auto text-sm font-mono">
           <h3 className="text-xl font-semibold mb-2">Dados completos da API:</h3>
           <pre>{JSON.stringify(fullData, null, 2)}</pre>
         </div>
       </div>
 
-      {/* Pôster */}
       <div className="w-full sm:w-1/3 md:w-1/3 lg:w-1/3 mb-8 sm:mb-0">
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

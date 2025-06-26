@@ -9,7 +9,7 @@ function Home() {
   const [isSearching, setIsSearching] = useState(false);
   const [activeFilter, setActiveFilter] = useState('nowPlaying');
   const [meta, setMeta] = useState({});
-  const [currentPage, setCurrentPage] = useState(1); // 👈 Novo estado de página
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     async function loadMovies() {
@@ -19,7 +19,7 @@ function Home() {
         let url = '';
         const params = {
           language: 'pt-BR',
-          page: currentPage, // 👈 usa o estado da página atual
+          page: currentPage,
         };
 
         if (activeFilter === 'nowPlaying') {
@@ -52,9 +52,8 @@ function Home() {
     }
 
     loadMovies();
-  }, [search, activeFilter, currentPage]); // 👈 recarrega ao mudar página
+  }, [search, activeFilter, currentPage]);
 
-  // Resetar para página 1 ao mudar o filtro ou busca
   useEffect(() => {
     setCurrentPage(1);
   }, [activeFilter, search]);
@@ -91,7 +90,7 @@ function Home() {
             <p><strong>Página atual:</strong> {meta.currentPage}</p>
           </div>
         )}
-        
+
         <nav>
           <ul className="space-y-2">
             <li>
